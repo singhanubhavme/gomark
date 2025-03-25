@@ -39,6 +39,27 @@ func TestItalicParser(t *testing.T) {
 				Content: "1",
 			},
 		},
+		{
+			text: "_Hello_",
+			node: &ast.Italic{
+				Symbol:  "_",
+				Content: "Hello",
+			},
+		},
+		{
+			text: "_ Hello _",
+			node: &ast.Italic{
+				Symbol:  "_",
+				Content: " Hello ",
+			},
+		},
+		{
+			text: "_1_ Hello _ _",
+			node: &ast.Italic{
+				Symbol:  "_",
+				Content: "1",
+			},
+		},
 	}
 
 	for _, test := range tests {
